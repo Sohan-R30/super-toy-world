@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-link {
+    @apply hover:animate-bounce hover:border-primaryColor hover:border-2 hover:px-2 hover:py-1 hover:rounded-sm;
+}
