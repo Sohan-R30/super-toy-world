@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import titleChange from "../../componennts/shared/titleChange";
 
 
 const Registration = () => {
@@ -11,6 +12,9 @@ const Registration = () => {
     const {createUser,auth} = useContext(AuthContext)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    titleChange("Registration");
+
 
     const onSubmit = data => {
         console.log(data);
@@ -32,7 +36,7 @@ const Registration = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 py-10 w-full justify-center">
                 <h2 className="mx-auto text-2xl text-primaryColor font-extrabold pb-2">Register</h2>
                 {/* register your input into the hook by invoking the "register" function */}
-                <input type="text" placeholder="Your Name" {...register("name")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />
+                <input type="text" placeholder="Your Name" {...register("name")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md"  />
                 <input type="email" placeholder="Your Email" {...register("email")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />
                 <input type="password" placeholder="Your Password" {...register("password")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />
                 <input type="url" placeholder="Your Photo" {...register("photo")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />

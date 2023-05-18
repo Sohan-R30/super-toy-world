@@ -1,5 +1,7 @@
+import titleChange from "../../componennts/shared/titleChange";
 
 const Blog = () => {
+    titleChange("Blogs");
     return (
         <div className="my-10">
             <p className="text-2xl pt-3">1. What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>

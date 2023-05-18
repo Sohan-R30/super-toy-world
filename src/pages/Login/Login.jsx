@@ -2,11 +2,15 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import titleChange from "../../componennts/shared/titleChange";
 
 const Login = () => {
     const [error, setError] = useState("");
     const {signInUser,googleSignInUser} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    titleChange("Login");
+
     const onSubmit = data => {
         console.log(data);
         setError("");

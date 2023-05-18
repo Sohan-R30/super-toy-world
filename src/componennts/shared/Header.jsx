@@ -17,7 +17,7 @@ const Header = () => {
             })
     }
     return (
-        <div className="flex justify-between flex-wrap items-center gap-10 my-10">
+        <div className="flex justify-between flex-wrap items-center gap-10 my-10 mx-1">
             <div className="flex justify-center items-center gap-2 mx-auto">
                 <img className="w-20" src={logo} alt="logo" />
                 <Link to="/" className="text-3xl font-bold text-primaryColor">Super Toy World</Link>
@@ -26,11 +26,11 @@ const Header = () => {
                 <p onClick={() => setHiddenNav(!hiddenNav)}><FaBars /></p>
             </div>
             <div className={`${hiddenNav ? "hidden" : "grid"} " text-center mx-auto grid-cols-1 sm:grid sm:grid-cols-5 gap-5 text-xl font-bold text-primaryColor w-full sm:w-auto "`}>
-                <Link to="/" className="">Home</Link>
-                <Link to="all-toys" className="">All Toys</Link>
-                <Link to="my-toys" className="">My Toys</Link>
-                <Link to="add-toy" className="">Add a Toy</Link>
-                <Link to="blogs" className="">blogs</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to="/" className="">Home</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to="all-toys" className="">All Toys</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to="my-toys" className="">My Toys</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to="add-toy" className="">Add a Toy</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to="blogs" className="">blogs</Link>
             </div>
             <div className="text-center mx-auto">
                 {
@@ -52,7 +52,6 @@ const Header = () => {
                             <button className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Login</button>
                         </Link>
                     )
-
                 }
             </div>
         </div >
