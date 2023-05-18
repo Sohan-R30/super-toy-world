@@ -22,13 +22,13 @@ const Header = () => {
                 <p className="">blogs</p>
             </div>
             <div className="text-center mx-auto">
-                <button className="btn bg-primaryColor hover:bg-[#fb7e44] border-none shadow-xl">Login</button>
+                <button className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Login</button>
                 {/* <div className="avatar">
                     <div className="w-12">
                         <img src={logo} alt="profile picture" />
                     </div>
                 </div>
-                <button className="btn btn-sm  bg-primaryColor hover:bg-[#fb7e44] border-none">Login</button> */}
+                <button className="btn btn-sm  bg-primaryColor hover:bg-[#d74c0b] border-none">Login</button> */}
             </div>
         </div>
     );
