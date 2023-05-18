@@ -11,7 +11,7 @@ const Registration = () => {
 
     const {createUser,auth} = useContext(AuthContext)
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     titleChange("Registration");
 
@@ -22,6 +22,7 @@ const Registration = () => {
         createUser(data.email, data.password)
             .then(result => {
                 console.log(result.user)
+                reset();
                 updateProfile(auth.currentUser, {
                     displayName: data.name,
                     photoURL: data.photo

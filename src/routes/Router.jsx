@@ -26,7 +26,7 @@ const router = createBrowserRouter(
                     element: <h2>all toys</h2>
                 },
                 {
-                    path: "/my-toys",
+                    path: "/my-toys/:email",
                     element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
                 },
                 {

@@ -7,7 +7,7 @@ import titleChange from "../../componennts/shared/titleChange";
 const Login = () => {
     const [error, setError] = useState("");
     const {signInUser,googleSignInUser} = useContext(AuthContext)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     titleChange("Login");
 
@@ -16,6 +16,7 @@ const Login = () => {
         setError("");
         signInUser(data.email, data.password)
             .then(result => {
+                reset();
                 console.log(result.user);
 
             })
@@ -51,7 +52,7 @@ const Login = () => {
 
                 {
                     error && (
-                        <p className="text-danger">{error}</p>
+                        <p className="text-warning">{error}</p>
                     )
                 }
 

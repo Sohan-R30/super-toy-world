@@ -9,12 +9,27 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext)
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     const handleAddToy = data => {
         console.log(data);
         setError("");
-
+        fetch("http://localhost:2000/add-toy",{
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(dataa => {
+            reset();
+            console.log(dataa);
+            if(dataa.insertedId){
+                alert("data added");
+            }
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
     };
     titleChange("Add Toy")
     return (
@@ -61,7 +76,7 @@ const AddToy = () => {
                 </div>
                 {
                     error && (
-                        <p className="text-danger">{error}</p>
+                        <p className="text-warning">{error}</p>
                     )
                 }
 

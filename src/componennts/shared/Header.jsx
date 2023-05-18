@@ -11,7 +11,9 @@ const Header = () => {
     const { user,signOutUser } = useContext(AuthContext)
     const handleSignOutUser = () => {
         signOutUser()
-            .then()
+            .then(() => {
+                setHiddenNav(!hiddenNav)
+            })
             .catch(error => {
                 console.log(error.message)
             })
@@ -28,7 +30,7 @@ const Header = () => {
             <div className={`${hiddenNav ? "hidden" : "grid"} " text-center mx-auto grid-cols-1 sm:grid sm:grid-cols-5 gap-5 text-xl font-bold text-primaryColor w-full sm:w-auto "`}>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="/" className="">Home</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="all-toys" className="">All Toys</Link>
-                <Link onClick={() => setHiddenNav(!hiddenNav)} to="my-toys" className="">My Toys</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to={`/my-toys/:${user?.email}`} className="">My Toys</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="add-toy" className="">Add a Toy</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="blogs" className="">blogs</Link>
             </div>
@@ -45,11 +47,11 @@ const Header = () => {
                                     <img src={user?.photoURL} alt="profile picture" />
                                 </div>
                             </div>
-                            <button onClick={handleSignOutUser} className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Sign Out</button>
+                            <button  onClick={handleSignOutUser} className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Sign Out</button>
                         </div>
                     ) : (
                         <Link to="login">
-                            <button className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Login</button>
+                            <button onClick={() => setHiddenNav(!hiddenNav)} className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Login</button>
                         </Link>
                     )
                 }
