@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "/superhero.png";
+import logo from "/superhero2.png";
 import { FaBars } from "react-icons/fa";
 
 
@@ -7,11 +7,11 @@ const Header = () => {
     const [hiddenNav, setHiddenNav] = useState(true)
     return (
         <div className="flex justify-between flex-wrap items-center gap-10 my-10">
-            <div className="flex justify-between items-center gap-2 mx-auto">
+            <div className="flex justify-center items-center gap-2 mx-auto">
                 <img className="w-20" src={logo} alt="logo" />
                 <p className="text-3xl font-bold text-primaryColor">Super Toy World</p>
             </div>
-            <div className="rounded-lg text-2xl text-primaryColor lg:hidden border shadow-xl p-3 mx-auto">
+            <div className="rounded-lg text-2xl text-primaryColor md:hidden border shadow-xl p-3 mx-auto">
                 <p onClick={() => setHiddenNav(!hiddenNav)}><FaBars/></p>
             </div>
             <div className={`${hiddenNav ? "hidden" : "grid"} " text-center mx-auto grid-cols-1 sm:grid sm:grid-cols-5 gap-5 text-xl font-bold text-primaryColor w-full sm:w-auto "`}>
