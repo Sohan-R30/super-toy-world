@@ -11,7 +11,7 @@ const Footer = () => {
                     <p className="text-3xl font-bold ">Super Toy World</p>
                 </div>
             </div>
-            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 sm:justify-items-center gap-10">
+            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 lg:justify-items-center gap-10">
                 <div>
                     <h2 className="text-3xl font-bold border-b-4 pb-2">Contact</h2>
                     <div className="text-xl sm:text-2xl flex flex-col gap-3 pt-2">
@@ -42,7 +42,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h2 className="text-3xl font-bold border-b-4 pb-2">Social Links</h2>
-                    <div className="text-xl sm:text-3xl flex gap-5 pt-2 justify-center">
+                    <div className="text-xl sm:text-3xl flex gap-5 pt-2 lg:justify-center">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
                         <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                         <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>

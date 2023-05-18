@@ -1,7 +1,6 @@
 import './App.css'
 import Footer from './componennts/shared/Footer'
 import Header from './componennts/shared/Header'
-import Login from './pages/Login/Login'
 import Registration from './pages/Login/Registration'
 
 function App() {
