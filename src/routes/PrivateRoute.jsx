@@ -8,7 +8,9 @@ const PrivateRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     // const loading = true
     const location = useLocation();
-    // const from = location?.state?.from?.pathname || "/";
+    console.log("🚀 ~ file: PrivateRoute.jsx:11 ~ PrivateRoute ~ location:", location)
+    const from = location?.state?.from?.pathname || "/";
+    console.log("🚀 ~ file: PrivateRoute.jsx:13 ~ PrivateRoute ~ from:", from)
 
     if (loading) {
         return (

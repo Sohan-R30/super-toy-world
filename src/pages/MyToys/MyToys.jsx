@@ -1,23 +1,34 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MyToysTable from "./MyToysTable";
 import Swal from 'sweetalert2';
 import { ThreeDots } from "react-loader-spinner";
+import { AuthContext } from "../../contexts/AuthProvider";
+import titleChange from "../../componennts/shared/titleChange";
+import Select from 'react-select'
+
+const options = [
+    { value: 'ascending', label: 'Ascending' },
+    { value: 'descending', label: 'Descending' }
+]
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState();
     const [isLoading, setIsloading] = useState(true);
-    const { email } = useParams();
-
+    const [selectedOption, setSelectedOption] = useState(null);
+    const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:2000/my-toys/${email}`)
+        fetch(`http://localhost:2000/my-toys?email=${user.email}&sortby=${selectedOption?.value}`)
             .then(res => res.json())
             .then(data => {
-                setIsloading(false)
                 setMyToys(data)
+                setIsloading(false)
+                console.log(data)
             })
-    }, [email, isLoading])
+    }, [user, isLoading,selectedOption])
 
+    titleChange("My Toys")
+console.log(selectedOption);
     const handleDeleteToy = (id) => {
         console.log(id);
         Swal.fire({
@@ -52,7 +63,6 @@ const MyToys = () => {
         })
     }
 
-
     return (
         <div>
             {
@@ -73,13 +83,21 @@ const MyToys = () => {
                 ) : (
                     <>
                         <div className="text-center px-10">
-                            <h2 className="text-4xl font-bold"><span className="text-[#178291]">Hi,</span> <span className="text-primaryColor">{myToys[0]?.sellarName}</span></h2>
+                            <h2 className="text-4xl font-bold"><span className="text-[#178291]">Hi,</span> <span className="text-primaryColor">{user?.displayName?.toUpperCase()}</span></h2>
                             <div className="text-xl">
                                 <p >You already have been added <span className="text-[#178291]">{myToys?.length} Toy</span></p>
                                 <p>If you Want to add more Toy then click on navigation bar <Link to="/add-toy" className="text-primaryColor font-bold">ADD A TOY</Link> </p>
+                                <div className="max-w-sm mx-auto mt-10">
+                                    <Select options={options}
+                                        placeholder="Sort By"
+                                        className="text-sm font-bold"
+                                        defaultValue={selectedOption}
+                                        onChange={setSelectedOption}
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className="overflow-x-auto px-3 sm:px-10 py-10 sm:max-w-5xl mb-20 mx-auto shadow-2xl">
+                        <div className="overflow-x-auto px-3 sm:px-10 py-10 sm:max-w-5xl my-16 mx-auto shadow-2xl">
                             <table className="table w-full">
                                 {/* head */}
                                 <thead className="	">
@@ -94,13 +112,17 @@ const MyToys = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="text-xl">
+
                                     {
-                                        myToys && myToys.map((myToy, index) => <MyToysTable
-                                            handleDeleteToy={handleDeleteToy}
-                                            index={index}
-                                            myToy={myToy}
-                                            key={myToy._id} >
-                                        </MyToysTable>)
+                                        myToys?.length === 0 ? <p className="text-error text-2xl text-center"> Data Not Found </p> : (
+                                            myToys && myToys.map((myToy, index) => <MyToysTable
+                                                handleDeleteToy={handleDeleteToy}
+                                                index={index}
+                                                myToy={myToy}
+                                                key={myToy._id} >
+                                            </MyToysTable>)
+                                        )
+
                                     }
                                 </tbody>
                             </table>

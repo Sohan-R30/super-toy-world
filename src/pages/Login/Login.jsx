@@ -1,15 +1,24 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import titleChange from "../../componennts/shared/titleChange";
 
 const Login = () => {
     const [error, setError] = useState("");
     const {signInUser,googleSignInUser} = useContext(AuthContext)
-    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+
+
+    const navigate = useNavigate();
+    console.log("🚀 ~ file: Login.jsx:13 ~ Login ~ navigate:", navigate)
+    const location = useLocation();
+    console.log("🚀 ~ file: Login.jsx:15 ~ Login ~ location:", location)
+    const from = location?.state?.from?.pathname || "/"
+    console.log("🚀 ~ file: Login.jsx:17 ~ Login ~ from:", from)
 
     titleChange("Login");
+
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         console.log(data);
@@ -18,6 +27,7 @@ const Login = () => {
             .then(result => {
                 reset();
                 console.log(result.user);
+                navigate(from, {replace: true})
 
             })
             .catch(error => {
@@ -30,6 +40,7 @@ const Login = () => {
         googleSignInUser()
             .then(result => {
                 console.log(result.user);
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 setError(error.message)
@@ -52,7 +63,7 @@ const Login = () => {
 
                 {
                     error && (
-                        <p className="text-warning">{error}</p>
+                        <p className="text-error text-xl">{error}</p>
                     )
                 }
 

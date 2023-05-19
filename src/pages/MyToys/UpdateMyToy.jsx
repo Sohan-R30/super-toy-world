@@ -112,9 +112,9 @@ const UpdateMyToy = () => {
                                 <label htmlFor="subCategory" className="w-2/4 text-justify text-primaryColor font-bold">Quantity :</label>
                             </div>
                             <div className="flex flex-col md:flex-row gap-4 w-9/12 mx-auto">
-                                <input type="text" defaultValue={toyData.price}  {...register("price")} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
-                                <input type="text" defaultValue={toyData.ratings} {...register("ratings")} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
-                                <input type="text" defaultValue={toyData.quantity} {...register("quantity")} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
+                                <input type="text" defaultValue={toyData.price}  {...register("price",{valueAsNumber: true})} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
+                                <input type="text" defaultValue={toyData.ratings} {...register("ratings",{valueAsNumber: true})} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
+                                <input type="text" defaultValue={toyData.quantity} {...register("quantity",{valueAsNumber: true})} className="border-2 outline-primaryColor p-2 w-full md:w-2/4  rounded-md" required />
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@ const UpdateMyToy = () => {
                     </div>
                     {
                         error && (
-                            <p className="text-warning text-2xl">{error}</p>
+                            <p className="text-error text-xl">{error}</p>
                         )
                     }
 

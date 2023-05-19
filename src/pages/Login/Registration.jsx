@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import titleChange from "../../componennts/shared/titleChange";
@@ -12,6 +12,8 @@ const Registration = () => {
     const {createUser,auth} = useContext(AuthContext)
 
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    
+    const navigate = useNavigate();
 
     titleChange("Registration");
 
@@ -21,7 +23,8 @@ const Registration = () => {
         setError("");
         createUser(data.email, data.password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
+                navigate(-2)
                 reset();
                 updateProfile(auth.currentUser, {
                     displayName: data.name,
@@ -44,7 +47,7 @@ const Registration = () => {
 
                 {
                     error && (
-                        <p className="text-danger">{error}</p>
+                        <p className="text-error text-xl">{error}</p>
                     )
                 }
 
