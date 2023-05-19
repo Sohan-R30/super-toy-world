@@ -4,7 +4,7 @@ import { FaFacebook, FaLinkedin, FaTwitter, FaStore, FaPhone, FaClock } from "re
 
 const Footer = () => {
     return (
-        <div className=" bg-primaryColor text-white px-5 sm:px-10 py-5">
+        <div className=" bg-primaryColor text-white px-5 sm:px-10 py-5 ">
             <div className="flex items-center gap-2 mx-auto">
                 <div className="flex items-center">
                     <img className="w-20" src={logo} alt="logo" />
@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 lg:justify-items-center gap-10">
                 <div>
                     <h2 className="text-3xl font-bold border-b-4 pb-2">Contact</h2>
-                    <div className="text-xl sm:text-2xl flex flex-col gap-3 pt-2">
+                    <div className="text-xl sm:text-2xl flex flex-col gap-3 pt-2 break-all">
                         <div className="flex items-center gap-2">
                             <FaStore />
                             <p>Mohammadpur, Dhaka</p>
@@ -29,7 +29,7 @@ const Footer = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <AiFillMail />
-                            <p> supertoyworld@gmail.com</p>
+                            <p className=""> supertoyworld@gmail.com</p>
                         </div>
                     </div>
                 </div>
