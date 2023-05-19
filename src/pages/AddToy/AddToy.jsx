@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import titleChange from "../../componennts/shared/titleChange";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Swal from 'sweetalert2';
 
 
 const AddToy = () => {
@@ -24,7 +25,13 @@ const AddToy = () => {
             reset();
             console.log(dataa);
             if(dataa.insertedId){
-                alert("data added");
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Toy Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
         })
         .catch(error => {

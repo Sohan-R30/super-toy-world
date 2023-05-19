@@ -30,7 +30,7 @@ const Header = () => {
             <div className={`${hiddenNav ? "hidden" : "grid"} " text-center mx-auto grid-cols-1 sm:grid sm:grid-cols-5 gap-5 text-xl font-bold text-primaryColor w-full sm:w-auto "`}>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="/" className="">Home</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="all-toys" className="">All Toys</Link>
-                <Link onClick={() => setHiddenNav(!hiddenNav)} to={`/my-toys/:${user?.email}`} className="">My Toys</Link>
+                <Link onClick={() => setHiddenNav(!hiddenNav)} to={`/my-toys/${user?.email}`} className="">My Toys</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="add-toy" className="">Add a Toy</Link>
                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="blogs" className="">blogs</Link>
             </div>
