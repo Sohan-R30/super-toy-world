@@ -8,8 +8,8 @@ import titleChange from "../../componennts/shared/titleChange";
 import Select from 'react-select'
 
 const options = [
-    { value: 'ascending', label: 'Ascending' },
-    { value: 'descending', label: 'Descending' }
+    { value: 'ascending', label: 'Price Low To High' },
+    { value: 'descending', label: 'Price High To Low' }
 ]
 
 const MyToys = () => {
@@ -93,20 +93,30 @@ console.log(selectedOption);
                                         className="text-sm font-bold"
                                         defaultValue={selectedOption}
                                         onChange={setSelectedOption}
+                                        styles={{
+                                            control: (baseStyles, state) => ({
+                                              ...baseStyles,
+                                              borderColor: state.isSelected ? '' : '#fb7e44',
+                                              backgroundColor: state.isFocused ? '' : '#fb7e44',
+                                            }),
+                                          }}
+                                          
                                     />
                                 </div>
                             </div>
                         </div>
-                        <div className="overflow-x-auto px-3 sm:px-10 py-10 sm:max-w-5xl my-16 mx-auto shadow-2xl">
+                        <div className="overflow-x-auto px-10 sm:px-10 py-10 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-7xl my-16 mx-auto shadow-2xl">
                             <table className="table w-full">
                                 {/* head */}
                                 <thead className="	">
                                     <tr className="text-primaryColor font-bold hidden sm:table-row">
                                         <th className="bg-primaryColor " ></th>
                                         <th className="bg-primaryColor " ></th>
-                                        <th className="bg-[#b4dfe5] text-sm" >Name</th>
+                                        <th className="bg-[#b4dfe5] text-sm" >Seller Name</th>
+                                        <th className="bg-[#b4dfe5] text-sm" >Toy Name</th>
                                         <th className="bg-[#b4dfe5] text-sm">Sub Category</th>
                                         <th className="bg-[#b4dfe5] text-sm">Price</th>
+                                        <th className="bg-[#b4dfe5] text-sm">Quantity</th>
                                         <th className="bg-[#b4dfe5] text-sm">Actions</th>
                                         <th className="bg-[#b4dfe5] text-sm"></th>
                                     </tr>
