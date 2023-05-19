@@ -124,7 +124,7 @@ console.log(selectedOption);
                                 <tbody className="text-xl">
 
                                     {
-                                        myToys?.length === 0 ? <p className="text-error text-2xl text-center"> Data Not Found </p> : (
+                                        myToys?.length === 0 ? <tr className="text-error text-2xl text-center"> <td colSpan={7}>Data Not Found</td> </tr> : (
                                             myToys && myToys.map((myToy, index) => <MyToysTable
                                                 handleDeleteToy={handleDeleteToy}
                                                 index={index}
