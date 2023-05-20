@@ -15,10 +15,11 @@ const options = [
 const MyToys = () => {
     const [myToys, setMyToys] = useState();
     const [isLoading, setIsloading] = useState(true);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    console.log("🚀 ~ file: MyToys.jsx:19 ~ MyToys ~ selectedOption:", selectedOption)
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:2000/my-toys?email=${user.email}&sortby=${selectedOption?.value}`)
+        fetch(`https://super-toy-world-server.vercel.app/my-toys?email=${user?.email}&sortby=${selectedOption?.value}`)
             .then(res => res.json())
             .then(data => {
                 setMyToys(data)
@@ -28,7 +29,6 @@ const MyToys = () => {
     }, [user, isLoading,selectedOption])
 
     titleChange("My Toys")
-console.log(selectedOption);
     const handleDeleteToy = (id) => {
         console.log(id);
         Swal.fire({
@@ -46,7 +46,7 @@ console.log(selectedOption);
                     'Your file has been deleted.',
                     'success'
                 )
-                fetch(`http://localhost:2000/delete-toy/${id}`, {
+                fetch(`https://super-toy-world-server.vercel.app/delete-toy/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -93,14 +93,6 @@ console.log(selectedOption);
                                         className="text-sm font-bold"
                                         defaultValue={selectedOption}
                                         onChange={setSelectedOption}
-                                        styles={{
-                                            control: (baseStyles, state) => ({
-                                              ...baseStyles,
-                                              borderColor: state.isSelected ? '' : '#fb7e44',
-                                              backgroundColor: state.isFocused ? '' : '#fb7e44',
-                                            }),
-                                          }}
-                                          
                                     />
                                 </div>
                             </div>

@@ -47,10 +47,10 @@ const Header = () => {
                             </div>
                             <div className={`${hiddenNav ? "hidden" : "grid"} " text-center mx-auto grid-cols-1 sm:grid sm:grid-cols-5 gap-5 text-lg font-bold text-primaryColor w-full sm:w-auto "`}>
                                 <Link onClick={() => setHiddenNav(!hiddenNav)} to="/" className="">HOME</Link>
-                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="all-toys" className="">ALL TOYS</Link>
-                                <Link onClick={() => setHiddenNav(!hiddenNav)} to={`/my-toys/${user?.email}`} className="">MY TOYS</Link>
-                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="add-toy" className="">ADD A TOY</Link>
-                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="blogs" className="">BLOGS</Link>
+                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="/all-toys" className="">ALL TOYS</Link>
+                                <Link onClick={() => setHiddenNav(!hiddenNav)} to={`/my-toys`} className="">MY TOYS</Link>
+                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="/add-toy" className="">ADD A TOY</Link>
+                                <Link onClick={() => setHiddenNav(!hiddenNav)} to="/blogs" className="">BLOGS</Link>
                             </div>
                             <div className="text-center mx-auto">
                                 {
@@ -65,11 +65,11 @@ const Header = () => {
                                                     <img src={user?.photoURL} alt="profile picture" />
                                                 </div>
                                             </div>
-                                            <button onClick={handleSignOutUser} className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Sign Out</button>
+                                            <button onClick={handleSignOutUser} className="btn bg-primaryColor hover:bg-hoverColor hover:text-black border-none shadow-xl">Sign Out</button>
                                         </div>
                                     ) : (
                                         <Link to="login">
-                                            <button onClick={() => setHiddenNav(!hiddenNav)} className="btn bg-primaryColor hover:bg-[#d74c0b] border-none shadow-xl">Login</button>
+                                            <button onClick={() => setHiddenNav(!hiddenNav)} className="btn bg-primaryColor hover:bg-hoverColor hover:text-black border-none shadow-xl">Login</button>
                                         </Link>
                                     )
                                 }

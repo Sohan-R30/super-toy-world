@@ -24,11 +24,11 @@ const MyToysTable = ({ myToy, index, handleDeleteToy }) => {
                 <td className="text-primaryColor border md:border-none">{quantity}</td>
                 <th className="border md:border-none">
                     <Link to={`/update-toy/${_id}`}>
-                        <button className="btn w-full  bg-primaryColor hover:bg-[#d74c0b] border-none  text-white font-bold">Update</button>
+                        <button className="btn w-full  bg-primaryColor hover:bg-hoverColor hover:text-black border-none  text-white font-bold">Update</button>
                     </Link>
                 </th>
                 <th className="border md:border-none">
-                    <button onClick={() => handleDeleteToy(_id)} className="btn w-full btn-square bg-primaryColor hover:bg-[#d74c0b] border-none">
+                    <button onClick={() => handleDeleteToy(_id)} className="btn w-full btn-square bg-primaryColor hover:bg-hoverColor hover:text-black border-none">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
                 </th>

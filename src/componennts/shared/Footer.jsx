@@ -4,7 +4,7 @@ import { FaFacebook, FaLinkedin, FaTwitter, FaStore, FaPhone, FaClock } from "re
 
 const Footer = () => {
     return (
-        <div className=" bg-primaryColor text-white px-5 sm:px-10 py-5 ">
+        <div className=" bg-secondaryColor text-white px-5 sm:px-10 py-5 ">
             <div className="flex items-center gap-2 mx-auto">
                 <div className="flex items-center">
                     <img className="w-20" src={logo} alt="logo" />

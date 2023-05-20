@@ -1,11 +1,13 @@
+import Banner from "../../componennts/Banner/Banner";
+import Gallery from "../../componennts/Gallery/Gallery";
 import titleChange from "../../componennts/shared/titleChange";
-
 
 const Home = () => {
     titleChange("Home");
     return (
         <div>
-            <h2>hiii</h2>
+            <Banner></Banner>
+            <Gallery></Gallery>
         </div>
     );
 };

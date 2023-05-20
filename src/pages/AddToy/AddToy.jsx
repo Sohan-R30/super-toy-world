@@ -15,7 +15,7 @@ const AddToy = () => {
     const handleAddToy = data => {
         console.log(data);
         setError("");
-        fetch("http://localhost:2000/add-toy",{
+        fetch("https://super-toy-world-server.vercel.app/add-toy",{
             method: "POST",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(data)
@@ -92,7 +92,7 @@ const AddToy = () => {
                 {/* errors will return when field validation fails  */}
                 {errors.exampleRequired && <span>This field is required</span>}
 
-                <input type="submit" value="Add Toy" className="btn  bg-primaryColor hover:bg-[#d74c0b] border-none  text-white font-bold w-9/12 mx-auto" />
+                <input type="submit" value="Add Toy" className="btn  bg-primaryColor hover:bg-hoverColor hover:text-black border-none  text-white font-bold w-9/12 mx-auto" />
             </form>
         </div>
     );

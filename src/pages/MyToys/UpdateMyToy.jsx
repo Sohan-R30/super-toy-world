@@ -19,7 +19,7 @@ const UpdateMyToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:2000/myupdate-toy?email=${email}&id=${id}`)
+        fetch(`https://super-toy-world-server.vercel.app/myupdate-toy?email=${email}&id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setToyData(data);
@@ -54,7 +54,7 @@ const UpdateMyToy = () => {
         else {
             console.log(data)
             setError("");
-            fetch(`http://localhost:2000/update-toy/${id}`,{
+            fetch(`https://super-toy-world-server.vercel.app/update-toy/${id}`,{
                 method: "PATCH",
                 headers: {"Content-Type": "application/json",},
                 body: JSON.stringify(data)
@@ -132,7 +132,7 @@ const UpdateMyToy = () => {
                     {/* errors will return when field validation fails  */}
                     {errors.exampleRequired && <span>This field is required</span>}
 
-                    <input type="submit" value="Update Toy" className="btn  bg-primaryColor hover:bg-[#d74c0b] border-none  text-white font-bold w-9/12 mx-auto" />
+                    <input type="submit" value="Update Toy" className="btn  bg-primaryColor hover:bg-hoverColor hover:text-black border-none  text-white font-bold w-9/12 mx-auto" />
                 </form>
             </div>
             <ToastContainer

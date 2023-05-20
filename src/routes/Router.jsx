@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateMyToy from "../pages/MyToys/UpdateMyToy";
 import AllToys from "../pages/AllToys/AllToys";
+import Modal from "../componennts/Modal/Modal";
 
 
 const router = createBrowserRouter(
@@ -28,7 +29,12 @@ const router = createBrowserRouter(
                     element: <AllToys></AllToys>
                 },
                 {
-                    path: "/my-toys/:email",
+                    path:"/single-toy/:id",
+                    element: <PrivateRoute><Modal></Modal></PrivateRoute>,
+                    loader: ({params}) => fetch(`https://super-toy-world-server.vercel.app/single-toy/${params.id}`)
+                },
+                {
+                    path: "/my-toys/",
                     element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
                 },
                 {
