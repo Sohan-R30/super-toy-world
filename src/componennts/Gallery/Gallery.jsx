@@ -7,7 +7,7 @@ const Gallery = () => {
 
 
     useEffect(() => {
-        fetch("https://super-toy-world-server.vercel.app/allImages")
+        fetch("http://localhost:2000/allImages")
             .then(res => res.json())
             .then(data => {
                 setIsloading(false)

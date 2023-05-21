@@ -27,7 +27,7 @@ const AllToys = () => {
         event.preventDefault();
         const searchValue = event.target.value;
         if (searchValue === "") {
-            fetch("https://super-toy-world-server.vercel.app/all-toys")
+            fetch("http://localhost:2000/all-toys")
                 .then(res => res.json())
                 .then(data => {
                     setAllToys(data)
@@ -40,7 +40,7 @@ const AllToys = () => {
         }
         setSearchText(searchValue);
         console.log("out  " + searchValue);
-        fetch(`https://super-toy-world-server.vercel.app/searchInAllToys/${searchText}`)
+        fetch(`http://localhost:2000/searchInAllToys/${searchText}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
             .catch(error => {
@@ -69,7 +69,7 @@ const AllToys = () => {
     }
 
     useEffect(() => {
-        fetch(`https://super-toy-world-server.vercel.app/all-toys?page=${currentPage}&limit=${toyPerPage}`)
+        fetch(`http://localhost:2000/all-toys?page=${currentPage}&limit=${toyPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -82,7 +82,7 @@ const AllToys = () => {
     }, [currentPage, toyPerPage])
 
     useEffect(() => {
-        fetch("https://super-toy-world-server.vercel.app/totalToys")
+        fetch("http://localhost:2000/totalToys")
             .then(res => res.json())
             .then(data => {
                 setTotalToys(data?.totalToys)
@@ -100,7 +100,7 @@ const AllToys = () => {
         <>
             <div className="text-center mt-5">
                 <div className="text-2xl">
-                    <p >Here are the total toys <span className="text-[#178291]">{allToys?.length} Toy</span></p>
+                    <p >Here are the total toys <span className="text-[#18c2d8]">{allToys?.length} Toy</span></p>
                     <p>If you Want to see Toy details then click on <span className="text-primaryColor font-bold">View Details</span> Button </p>
                     <p>Also you can search by the Name of Toys</p>
                 </div>

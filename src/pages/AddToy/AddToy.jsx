@@ -15,7 +15,7 @@ const AddToy = () => {
     const handleAddToy = data => {
         console.log(data);
         setError("");
-        fetch("https://super-toy-world-server.vercel.app/add-toy",{
+        fetch("http://localhost:2000/add-toy",{
             method: "POST",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(data)

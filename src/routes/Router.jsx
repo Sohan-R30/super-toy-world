@@ -31,7 +31,7 @@ const router = createBrowserRouter(
                 {
                     path:"/single-toy/:id",
                     element: <PrivateRoute><Modal></Modal></PrivateRoute>,
-                    loader: ({params}) => fetch(`https://super-toy-world-server.vercel.app/single-toy/${params.id}`)
+                    loader: ({params}) => fetch(`http://localhost:2000/single-toy/${params.id}`)
                 },
                 {
                     path: "/my-toys/",

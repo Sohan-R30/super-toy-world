@@ -19,7 +19,7 @@ const UpdateMyToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        fetch(`https://super-toy-world-server.vercel.app/myupdate-toy?email=${email}&id=${id}`)
+        fetch(`http://localhost:2000/myupdate-toy?email=${email}&id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setToyData(data);
@@ -54,7 +54,7 @@ const UpdateMyToy = () => {
         else {
             console.log(data)
             setError("");
-            fetch(`https://super-toy-world-server.vercel.app/update-toy/${id}`,{
+            fetch(`http://localhost:2000/update-toy/${id}`,{
                 method: "PATCH",
                 headers: {"Content-Type": "application/json",},
                 body: JSON.stringify(data)
