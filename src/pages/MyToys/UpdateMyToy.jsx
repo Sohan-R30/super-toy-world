@@ -19,7 +19,7 @@ const UpdateMyToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:2000/myupdate-toy?email=${email}&id=${id}`)
+        fetch(`https://super-toy-world-server.vercel.app/myupdate-toy?email=${email}&id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setToyData(data);
@@ -54,7 +54,7 @@ const UpdateMyToy = () => {
         else {
             console.log(data)
             setError("");
-            fetch(`http://localhost:2000/update-toy/${id}`,{
+            fetch(`https://super-toy-world-server.vercel.app/update-toy/${id}`,{
                 method: "PATCH",
                 headers: {"Content-Type": "application/json",},
                 body: JSON.stringify(data)
@@ -86,7 +86,7 @@ const UpdateMyToy = () => {
 
     return (
         <div>
-            <div className="mx-5 sm:mx-auto text-center flex flex-col justify-center sm:w-2/4 md:w-9/12 border my-20 bg-[#ecdbd4] rounded-md">
+            <div className="mx-5 sm:mx-auto text-center flex flex-col justify-center sm:w-2/4 md:w-9/12 border my-20 bg-formColor rounded-md">
                 <form onSubmit={handleSubmit(handleUpdateToy)} className="flex flex-col gap-5 py-10 w-full justify-center">
                     <h2 className="mx-auto text-3xl text-primaryColor font-extrabold pb-2">Update A Toy</h2>
                     {/* register your input into the hook by invoking the "register" function */}
@@ -137,7 +137,7 @@ const UpdateMyToy = () => {
             </div>
             <ToastContainer
                 position="top-center"
-                autoClose={5000}
+                autoClose={800}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

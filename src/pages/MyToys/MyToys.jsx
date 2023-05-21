@@ -19,7 +19,7 @@ const MyToys = () => {
     console.log("🚀 ~ file: MyToys.jsx:19 ~ MyToys ~ selectedOption:", selectedOption)
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:2000/my-toys?email=${user?.email}&sortby=${selectedOption?.value}`)
+        fetch(`https://super-toy-world-server.vercel.app/my-toys?email=${user?.email}&sortby=${selectedOption?.value}`)
             .then(res => res.json())
             .then(data => {
                 setMyToys(data)
@@ -46,7 +46,7 @@ const MyToys = () => {
                     'Your file has been deleted.',
                     'success'
                 )
-                fetch(`http://localhost:2000/delete-toy/${id}`, {
+                fetch(`https://super-toy-world-server.vercel.app/delete-toy/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

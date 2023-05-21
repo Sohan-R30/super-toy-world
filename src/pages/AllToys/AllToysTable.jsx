@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import AOS from "../../componennts/AOS/AOS";
 
 
 const AllToysTable = ({ handleDetailsToy, allToy, index, setOpenModal }) => {
     const { _id, toyName, subCategory, price, sellarName, quantity } = allToy || {};
     return (
-        <tr className="flex flex-col sm:table-row mt-10 shadow-2xl">
+        <tr className="flex flex-col sm:table-row mt-10 shadow-2xl"  data-aos="flip-up">
             <td className="bg-secondaryColor text-white font-bold text-2xl rounded-md sm:rounded-none">{index + 1}</td>
             <td className="border md:border-none">{sellarName}</td>
             <td className="border md:border-none">{toyName}</td>

@@ -52,7 +52,7 @@ const Modal = ({ setOpenModal }) => {
 
 
                 <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center m-2 md:m-10">
-                    <div className="sm:flex sm:mt-16 gap-5">
+                    <div className="sm:flex sm:mt-16 gap-5" data-aos="fade-right">
                         <img className="w-40 md:w-80 lg:w-96" src={toyPhoto} alt={toyName} />
                         <div className="sm:hidden">
                             <p className='text-xl flex items-center gap-2'><Rating
@@ -71,8 +71,8 @@ const Modal = ({ setOpenModal }) => {
                         </div>
                     </div>
 
-                    <div>
-                        <div className="hidden sm:flex flex-col gap-5">
+                    <div data-aos="fade-left">
+                        <div className="hidden sm:flex flex-col gap-5" >
                             <p className='text-xl flex items-center gap-2'><Rating
                                 itemStyles={myStyles}
                                 style={{ maxWidth: 150, }}

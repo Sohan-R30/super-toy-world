@@ -9,7 +9,8 @@ export default {
       colors: {
         primaryColor: '#12265a',
         secondaryColor: '#12265acc',
-        hoverColor: "#b4dfe5"
+        hoverColor: "#b4dfe5",
+        formColor: "#889ea1a4"
       }
     },
   },

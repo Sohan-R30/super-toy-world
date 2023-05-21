@@ -27,7 +27,7 @@ const AllToys = () => {
         event.preventDefault();
         const searchValue = event.target.value;
         if (searchValue === "") {
-            fetch("http://localhost:2000/all-toys")
+            fetch("https://super-toy-world-server.vercel.app/all-toys")
                 .then(res => res.json())
                 .then(data => {
                     setAllToys(data)
@@ -40,7 +40,7 @@ const AllToys = () => {
         }
         setSearchText(searchValue);
         console.log("out  " + searchValue);
-        fetch(`http://localhost:2000/searchInAllToys/${searchText}`)
+        fetch(`https://super-toy-world-server.vercel.app/searchInAllToys/${searchText}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
             .catch(error => {
@@ -69,7 +69,7 @@ const AllToys = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:2000/all-toys?page=${currentPage}&limit=${toyPerPage}`)
+        fetch(`https://super-toy-world-server.vercel.app/all-toys?page=${currentPage}&limit=${toyPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -82,7 +82,7 @@ const AllToys = () => {
     }, [currentPage, toyPerPage])
 
     useEffect(() => {
-        fetch("http://localhost:2000/totalToys")
+        fetch("https://super-toy-world-server.vercel.app/totalToys")
             .then(res => res.json())
             .then(data => {
                 setTotalToys(data?.totalToys)

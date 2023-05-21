@@ -49,25 +49,21 @@ const Login = () => {
 
 
     return (
-        <div className=" mx-5 sm:mx-auto text-center flex flex-col justify-center sm:w-2/4 md:w-9/12 border my-28 bg-[#ecdbd4] rounded-md">
+        <div className=" mx-5 sm:mx-auto text-center flex flex-col justify-center sm:w-2/4 md:w-9/12 border my-28 bg-formColor rounded-md">
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 py-10 w-full justify-center">
-                <h2 className="mx-auto text-2xl text-primaryColor font-extrabold pb-2">Login</h2>
+                <h2 className=" text-4xl text-primaryColor font-extrabold pb-2">Login</h2>
                 {/* register your input into the hook by invoking the "register" function */}
                 <input type="email" placeholder="Your Email" {...register("email")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />
                 <input type="password" placeholder="Your Password" {...register("password")} className="border-2 outline-primaryColor p-2 w-9/12 mx-auto rounded-md" required />
-
-                {/* include validation with required or other standard HTML validation rules */}
-                {/* <input {...register("exampleRequired", { required: true })} /> */}
-                {/* errors will return when field validation fails  */}
+               
                 {errors.exampleRequired && <span>This field is required</span>}
-
                 {
                     error && (
                         <p className="text-error text-xl">{error}</p>
                     )
                 }
 
-                <input type="submit" value="Login" className="btn  bg-primaryColor hover:bg-[#d74c0b] border-none  text-white font-bold w-9/12 mx-auto" />
+                <input type="submit" value="Login" className="btn  bg-primaryColor hover:bg-hoverColor hover:text-black border-none  text-white font-bold w-9/12 mx-auto" />
             </form>
             <div>
                 <div className="divider p-2 w-9/12 mx-auto">OR</div>

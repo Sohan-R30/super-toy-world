@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-
+// eslint-disable-next-line no-unused-vars
+import AOS from "../../componennts/AOS/AOS";
 
 const MyToysTable = ({ myToy, index, handleDeleteToy }) => {
     const { _id, toyName, toyPhoto, subCategory, price,sellarName,quantity} = myToy;
@@ -8,7 +9,7 @@ const MyToysTable = ({ myToy, index, handleDeleteToy }) => {
 
 
     return (
-        <tr className="flex flex-col sm:table-row mt-10 shadow-2xl">
+        <tr className="flex flex-col sm:table-row mt-10 shadow-2xl"  data-aos="flip-down">
                 <td className="bg-primaryColor text-white font-bold text-2xl rounded-md sm:rounded-none">{index + 1}</td>
                 <td className="border md:border-none">
                     <div className="avatar">

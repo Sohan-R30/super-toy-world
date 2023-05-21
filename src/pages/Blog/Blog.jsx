@@ -3,9 +3,9 @@ import titleChange from "../../componennts/shared/titleChange";
 const Blog = () => {
     titleChange("Blogs");
     return (
-        <div className="my-10 max-w-2xl mx-auto text-justify px-10">
+        <div className="my-10 max-w-2xl mx-auto text-justify px-10" data-aos="zoom-in">
             <p className="text-3xl pt-3 mb-5 text-primaryColor font-bold">1. What is an access token and refresh token? How do they work and where should we store them on the client-side ?</p>
-            <p className="leading-7 tracking-wide text-lg">
+            <p className="leading-7 tracking-wide text-lg" data-aos="fade-right" data-aos-duration="2000">
                 An access token and a refresh token are both used in authentication and authorization
                 An access token is a string representing an authorization issued to the client. Tokens
                 represent specific scopes and duration of access, granted by the resource owner, and enforced
@@ -19,7 +19,7 @@ const Blog = () => {
 
             </p>
             <p className="text-3xl pt-3 mb-5 text-primaryColor font-bold">2. Compare SQL and NoSQL databases ?</p>
-            <p className="leading-7 tracking-wide text-lg">
+            <p className="leading-7 tracking-wide text-lg" data-aos="fade-left" data-aos-duration="2000">
                 SQL databases are relational, and NoSQL databases are non-relational. <br />
                 SQL databases use structured query language (SQL) and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data. <br />
                 SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. <br />
@@ -29,7 +29,7 @@ const Blog = () => {
                 real-time analytics, content management systems, and applications requiring high scalability and agility.
             </p>
             <p className="text-3xl pt-3 mb-5 text-primaryColor font-bold">3. What is express js? What is Nest JS ?</p>
-            <p className="leading-7 tracking-wide text-lg">
+            <p className="leading-7 tracking-wide text-lg" data-aos="fade-right" data-aos-duration="2000">
                 Express.js is a popular web application framework for Node.js. It provides a minimalistic and
                 flexible set of features to build web applications and APIs. Express.js simplifies the process
                 of handling HTTP requests, routing, middleware management, and view rendering. It is known for
@@ -43,7 +43,7 @@ const Blog = () => {
                 Extensive ecosystem
             </p>
             <p className="text-3xl pt-3 mb-5 text-primaryColor font-bold">4. What is MongoDB aggregate and how does it work ?</p>
-            <p className="leading-7 tracking-wide text-lg">
+            <p className="leading-7 tracking-wide text-lg" data-aos="fade-left" data-aos-duration="2000">
                 MongoDB&rsquo;s aggregate is a powerful aggregation framework that allows you to perform advanced data processing
                 and analysis operations on your data stored in MongoDB. It provides a way to perform complex computations,
                 transformations, and aggregations on collections of documents.

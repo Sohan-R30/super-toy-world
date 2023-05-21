@@ -7,7 +7,7 @@ const Gallery = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:2000/allImages")
+        fetch("https://super-toy-world-server.vercel.app/allImages")
             .then(res => res.json())
             .then(data => {
                 setIsloading(false)
@@ -34,9 +34,9 @@ const Gallery = () => {
                 ) : (
                     <div className="mx-2 my-20">
                         <div className=" font-bold text-secondaryColor text-center mb-10 ">
-                            <h2 className="text-4xl">Our Toys Gallery</h2>
+                        <h2 className="text-center text-4xl my-5 text-primaryColor font-extrabold pb-2">Our Toys Image Gallery</h2>
                         </div>
-                        <div className="flex flex-wrap justify-center gap-8 bg-secondaryColor rounded-2xl shadow-2xl py-10 px-4  ">
+                        <div className="flex flex-wrap justify-center gap-8 bg-secondaryColor rounded-2xl shadow-lg py-10 px-4  ">
                             {
                                 allImage && allImage.map(images => <Images
                                     images={images}

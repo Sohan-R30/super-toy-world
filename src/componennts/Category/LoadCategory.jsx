@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css';
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../contexts/AuthProvider";
+// eslint-disable-next-line no-unused-vars
+import AOS from "../AOS/AOS";
 
 const CustomStar = (
     <polygon points="478.53 189 318.53 152.69 239.26 0 160 152.69 0 189 111.02 303.45 84 478.53 239.26 396.63 394.53 478.53 367.51 303.45 478.53 189" />
@@ -19,7 +23,9 @@ const myStyles = {
 const LoadCategory = ({ categoryData }) => {
     const { toyPhoto, ratings, toyName, price, _id } = categoryData || {};
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext)
     const handleDetails = (id) => {
+       if(!user){
         Swal.fire({
             position: 'top-center',
             icon: 'error',
@@ -27,12 +33,13 @@ const LoadCategory = ({ categoryData }) => {
             showConfirmButton: false,
             timer: 1500
           })
-          setTimeout(() => {
+       }
+        setTimeout(() => {
             navigate(`/single-toy/${id}`);
           },1500)
     }
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-2xl ">
+        <div className="card ard-compact w-96 bg-base-100 shadow-2xl " data-aos="flip-down">
             <figure>
                 <img className="" src={toyPhoto} alt={toyName} />
             </figure>
