@@ -19,11 +19,9 @@ const Registration = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
         setError("");
         createUser(data.email, data.password)
-            .then(result => {
-                console.log(result.user);
+            .then(() => {
                 navigate(-2)
                 reset();
                 updateProfile(auth.currentUser, {

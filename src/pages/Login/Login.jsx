@@ -10,23 +10,18 @@ const Login = () => {
 
 
     const navigate = useNavigate();
-    console.log("🚀 ~ file: Login.jsx:13 ~ Login ~ navigate:", navigate)
     const location = useLocation();
-    console.log("🚀 ~ file: Login.jsx:15 ~ Login ~ location:", location)
     const from = location?.state?.from?.pathname || "/"
-    console.log("🚀 ~ file: Login.jsx:17 ~ Login ~ from:", from)
 
     titleChange("Login");
 
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
         setError("");
         signInUser(data.email, data.password)
-            .then(result => {
+            .then(() => {
                 reset();
-                console.log(result.user);
                 navigate(from, {replace: true})
 
             })
@@ -38,8 +33,7 @@ const Login = () => {
 
     const handleGoogleSingIn = () => {
         googleSignInUser()
-            .then(result => {
-                console.log(result.user);
+            .then(() => {
                 navigate(from, {replace: true})
             })
             .catch(error => {

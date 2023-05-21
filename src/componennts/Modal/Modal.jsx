@@ -23,7 +23,6 @@ const Modal = ({ setOpenModal }) => {
     const {user} = useContext(AuthContext)
     const singleToy = useLoaderData();
     const { description, price, quantity, ratings, sellarEmail, sellarName, subCategory, toyName, toyPhoto } = singleToy || {};
-    console.log("🚀 ~ file: Modal.jsx:12 ~ Modal ~ singleToy:", singleToy)
 
     titleChange(toyName)
     useEffect(() => {

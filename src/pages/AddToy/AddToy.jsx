@@ -13,7 +13,6 @@ const AddToy = () => {
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
 
     const handleAddToy = data => {
-        console.log(data);
         setError("");
         fetch("https://super-toy-world-server.vercel.app/add-toy",{
             method: "POST",
@@ -23,7 +22,6 @@ const AddToy = () => {
         .then(res => res.json())
         .then(dataa => {
             reset();
-            console.log(dataa);
             if(dataa.insertedId){
                 Swal.fire({
                     position: 'top-center',
@@ -35,7 +33,7 @@ const AddToy = () => {
             }
         })
         .catch(error => {
-            console.log(error.message);
+            setError(error.message);
         })
     };
     titleChange("Add Toy")

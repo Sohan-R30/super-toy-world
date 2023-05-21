@@ -7,11 +7,11 @@ import AOS from '../AOS/AOS';
 
 const Category = () => {
     const [toys, setToys] = useState([]);
-
-    const [subCategory, setSubcategory] = useState("Marvel")
+    const [error, setError] = useState("")
+    const [subCategory, setSubcategory] = useState("")
     const [selectedTab, setSelectedTab] = useState(0);
     const [loadCategoryData, setLoadCategoryData] = useState([]);
-    const [isLoading, setIsloading] = useState(true)
+    const [isLoading, setIsloading] = useState(true);
 
 
     const tabTitles = [...new Set(toys.map(obj => obj.subCategory))]
@@ -28,7 +28,7 @@ const Category = () => {
                 setToys(data)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }, [])
 
@@ -40,7 +40,7 @@ const Category = () => {
                 setLoadCategoryData(data)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }, [subCategory])
 
@@ -65,6 +65,7 @@ const Category = () => {
                     </div>
                 ) : (
                     <div>
+                         <h2 className="text-center text-4xl my-5 text-primaryColor font-extrabold pb-2">Click On Tabs To Show Toys</h2>
                         <Tabs onSelect={handleTabSelect} selectedIndex={selectedTab}>
                             <TabList className={`flex flex-wrap justify-center rounded-2xl text-xl gap-2  mx-5 sm:mx-5 lg:mx-10  py-10 bg-hoverColor`}>
                                 {
@@ -81,6 +82,7 @@ const Category = () => {
                                     ))
                                 }
                             </TabList>
+                           
                             {
                                 tabTitles.map((title, index) => (
                                     <TabPanel key={index}>
@@ -101,7 +103,7 @@ const Category = () => {
                 ) 
                 
                 }
-
+         <p className='text-danger hidden'>{error}</p>
         </div>
     );
 };

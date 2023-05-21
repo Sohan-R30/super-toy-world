@@ -10,9 +10,10 @@ const Reviews = () => {
     const { register, handleSubmit, reset } = useForm();
     const [reviews, setReviews] = useState([]);
     const [isLoading, setIsloading] = useState(true)
+    const [error, setError] = useState("")
 
+    
     const onSubmit = (data) => {
-        console.log(data);
         fetch("https://super-toy-world-server.vercel.app/addReviews", {
             method: "POST",
             headers: { "Content-Type": "application/json", },
@@ -21,7 +22,6 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => {
                 reset();
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         position: 'top-center',
@@ -34,7 +34,7 @@ const Reviews = () => {
                 }
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
 
     };
@@ -46,6 +46,7 @@ const Reviews = () => {
                 setReviews(data)
                 setIsloading(false);
             })
+            .catch(error => setError(error.message))
     }, [reviews])
 
     return (
@@ -76,7 +77,8 @@ const Reviews = () => {
                         />
                     </div>
                 ) : (
-                    <div className='flex flex-wrap justify-start mb-20 gap-5 '>
+                    <div className='flex flex-wrap justify-center mb-20 gap-5 '>
+                        <p className='text-danger hidden'>{error}</p>
                         {
                             reviews && reviews.map(review => <AllReviews
                                 review={review}

@@ -5,6 +5,7 @@ import Modal from "../../componennts/Modal/Modal";
 
 
 const AllToys = () => {
+    const [error, setError] = useState("")
     const [allToys, setAllToys] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [openModal, setOpenModal] = useState(false);
@@ -17,9 +18,7 @@ const AllToys = () => {
     const pageNumbers = [...Array(totalPage).keys()];
     const options = [5, 10, 20, 50]
 
-    const handleDetailsToy = (id) => {
-        console.log("details btn " + id);
-    }
+
 
 
 
@@ -31,20 +30,18 @@ const AllToys = () => {
                 .then(res => res.json())
                 .then(data => {
                     setAllToys(data)
-                    console.log(data)
                 })
                 .catch(error => {
-                    console.log(error.message)
+                    setError(error.message)
                 })
             return;
         }
         setSearchText(searchValue);
-        console.log("out  " + searchValue);
         fetch(`https://super-toy-world-server.vercel.app/searchInAllToys/${searchText}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
     }
     // setCurrentPage(currentPage - 1)
@@ -73,10 +70,9 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
-                console.log(data)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
 
     }, [currentPage, toyPerPage])
@@ -86,10 +82,9 @@ const AllToys = () => {
             .then(res => res.json())
             .then(data => {
                 setTotalToys(data?.totalToys)
-                console.log(data.totalToys)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
 
     }, [])
@@ -98,6 +93,7 @@ const AllToys = () => {
 
     return (
         <>
+        <p className='text-danger hidden'>{error}</p>
             <div className="text-center mt-5">
                 <div className="text-2xl">
                     <p >Here are the total toys <span className="text-[#18c2d8]">{allToys?.length} Toy</span></p>
@@ -126,7 +122,6 @@ const AllToys = () => {
                                 allToys?.length === 0 ? <tr className="text-error text-2xl text-center"> <td colSpan={7}>Data Not Found</td> </tr> : (
                                     allToys && allToys.map((allToy, index) => <AllToysTable
                                         setOpenModal={setOpenModal}
-                                        handleDetailsToy={handleDetailsToy}
                                         index={index}
                                         allToy={allToy}
                                         key={allToy._id} >

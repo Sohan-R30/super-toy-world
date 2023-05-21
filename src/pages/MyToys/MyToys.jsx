@@ -16,7 +16,7 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState();
     const [isLoading, setIsloading] = useState(true);
     const [selectedOption, setSelectedOption] = useState("");
-    console.log("🚀 ~ file: MyToys.jsx:19 ~ MyToys ~ selectedOption:", selectedOption)
+    const [error, setError] = useState("")
     const { user } = useContext(AuthContext);
     useEffect(() => {
         fetch(`https://super-toy-world-server.vercel.app/my-toys?email=${user?.email}&sortby=${selectedOption?.value}`)
@@ -24,13 +24,11 @@ const MyToys = () => {
             .then(data => {
                 setMyToys(data)
                 setIsloading(false)
-                console.log(data)
             })
-    }, [user, isLoading,selectedOption])
+    }, [user, isLoading, selectedOption])
 
     titleChange("My Toys")
     const handleDeleteToy = (id) => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -57,7 +55,7 @@ const MyToys = () => {
                         }
                     })
                     .catch(error => {
-                        console.log(error.message);
+                        setError(error.message);
                     })
             }
         })
@@ -82,6 +80,7 @@ const MyToys = () => {
 
                 ) : (
                     <>
+                        <p className='text-danger hidden'>{error}</p>
                         <div className="text-center px-10">
                             <h2 className="text-4xl font-bold"><span className="text-[#178291]">Hi,</span> <span className="text-primaryColor">{user?.displayName?.toUpperCase()}</span></h2>
                             <div className="text-xl">

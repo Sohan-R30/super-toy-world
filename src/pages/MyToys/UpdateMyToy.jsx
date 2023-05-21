@@ -52,7 +52,6 @@ const UpdateMyToy = () => {
             return toast.warning("Added or click on Describtion Filed");
         }
         else {
-            console.log(data)
             setError("");
             fetch(`https://super-toy-world-server.vercel.app/update-toy/${id}`,{
                 method: "PATCH",
@@ -61,7 +60,6 @@ const UpdateMyToy = () => {
             })
             .then(res => res.json())
             .then(dataa => {
-                console.log(dataa);
                 if(dataa.modifiedCount > 0){
                     Swal.fire({
                         position: 'top-center',
@@ -76,7 +74,7 @@ const UpdateMyToy = () => {
                 }
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
         }
 

@@ -8,6 +8,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 const Header = () => {
     const [hiddenNav, setHiddenNav] = useState(true);
+    const [error, setError] = useState("")
     const [showProfileName, setShowProfileName] = useState(true);
     const { user, signOutUser, loading } = useContext(AuthContext)
     const handleSignOutUser = () => {
@@ -16,7 +17,7 @@ const Header = () => {
                 setHiddenNav(!hiddenNav)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }
     return (
@@ -37,6 +38,7 @@ const Header = () => {
                     </div>
                 ) : (
                     <>
+                    <p className='text-danger hidden'>{error}</p>
                         <div className="flex justify-between flex-wrap items-center gap-10 my-10 mx-1">
                             <div className="flex justify-center items-center gap-2 mx-auto">
                                 <img className="w-20" src={logo} alt="logo" />
