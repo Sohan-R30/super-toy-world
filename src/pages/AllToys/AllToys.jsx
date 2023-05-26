@@ -76,7 +76,6 @@ const AllToys = () => {
             })
 
     }, [currentPage, toyPerPage])
-
     useEffect(() => {
         fetch("https://super-toy-world-server.vercel.app/totalToys")
             .then(res => res.json())

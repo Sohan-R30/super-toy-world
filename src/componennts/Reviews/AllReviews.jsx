@@ -18,9 +18,9 @@ const AllReviews = ({ review }) => {
     const {name,ratings,comment} = review || {};
 
     return (
-            <div className="p-8 border mb-4" data-aos="zoom-in-right">
+            <div className="p-8 m-5 border mb-4 w-3/4 sm:w-72 sm:h-52" data-aos="zoom-in-right">
                 <h4 className="text-lg font-bold">Reviewer Name : {name}</h4>
-                <p className='text-xl flex items-center gap-2'>Ratings: <Rating
+                <p className='text-xl flex flex-wrap items-center gap-2'>Ratings: <Rating
                                 itemStyles={myStyles}
                                 style={{ maxWidth: 150, }}
                                 value={ratings}

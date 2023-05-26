@@ -77,7 +77,7 @@ const Reviews = () => {
                         />
                     </div>
                 ) : (
-                    <div className='flex flex-wrap justify-center mb-20 gap-5 '>
+                    <div className='flex flex-wrap justify-center items-center  mb-20 gap-5 '>
                         <p className='text-danger hidden'>{error}</p>
                         {
                             reviews && reviews.map(review => <AllReviews
