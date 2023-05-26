@@ -24,6 +24,7 @@ const LoadCategory = ({ categoryData }) => {
     const { toyPhoto, ratings, toyName, price, _id } = categoryData || {};
     const navigate = useNavigate();
     const {user} = useContext(AuthContext)
+
     const handleDetails = (id) => {
        if(!user){
         Swal.fire({

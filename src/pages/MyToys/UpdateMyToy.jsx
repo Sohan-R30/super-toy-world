@@ -55,7 +55,7 @@ const UpdateMyToy = () => {
             setError("");
             fetch(`https://super-toy-world-server.vercel.app/update-toy/${id}`,{
                 method: "PATCH",
-                headers: {"Content-Type": "application/json",},
+                headers: {"content-type": "application/json",},
                 body: JSON.stringify(data)
             })
             .then(res => res.json())
@@ -69,7 +69,7 @@ const UpdateMyToy = () => {
                         timer: 1000
                       })
                       setTimeout(() => {
-                        navigate(`/my-toys/${email}`);
+                        navigate(`/my-toys`);
                       },1000)
                 }
             })
@@ -124,10 +124,6 @@ const UpdateMyToy = () => {
                             <p className="text-error text-xl">{error}</p>
                         )
                     }
-
-                    {/* include validation with required or other standard HTML validation rules */}
-                    {/* <input {...register("exampleRequired", { required: true })} /> */}
-                    {/* errors will return when field validation fails  */}
                     {errors.exampleRequired && <span>This field is required</span>}
 
                     <input type="submit" value="Update Toy" className="btn  bg-primaryColor hover:bg-hoverColor hover:text-black border-none  text-white font-bold w-9/12 mx-auto" />

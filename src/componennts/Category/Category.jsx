@@ -8,7 +8,7 @@ import AOS from '../AOS/AOS';
 const Category = () => {
     const [toys, setToys] = useState([]);
     const [error, setError] = useState("")
-    const [subCategory, setSubcategory] = useState("")
+    const [subCategory, setSubcategory] = useState("Marvel")
     const [selectedTab, setSelectedTab] = useState(0);
     const [loadCategoryData, setLoadCategoryData] = useState([]);
     const [isLoading, setIsloading] = useState(true);

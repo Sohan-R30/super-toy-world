@@ -9,7 +9,7 @@ import { ThreeDots } from "react-loader-spinner";
 const Header = () => {
     const [hiddenNav, setHiddenNav] = useState(true);
     const [error, setError] = useState("")
-    const [showProfileName, setShowProfileName] = useState(true);
+    const [showProfileName, setShowProfileName] = useState(false);
     const { user, signOutUser, loading } = useContext(AuthContext)
     const handleSignOutUser = () => {
         signOutUser()
@@ -19,6 +19,9 @@ const Header = () => {
             .catch(error => {
                 setError(error.message)
             })
+    }
+    const handleShowDisplayName = () => {
+        setShowProfileName(false)
     }
     return (
         <>
@@ -58,11 +61,13 @@ const Header = () => {
                                 {
                                     user ? (
                                         <div className="flex justify-center items-center gap-5">
-                                            <p className={`${showProfileName ? "hidden" : ""} text-xl font-bold text-primaryColor`}>{user && user?.displayName?.split(" ")[0]?.toUpperCase()} {user && user?.displayName?.split(" ")[1]?.toUpperCase()}</p>
+                                            {
+                                               showProfileName && <p className={`font-bold text-primaryColor`}>{user && user?.displayName?.split(" ")[0]?.toUpperCase()} {user && user?.displayName?.split(" ")[1]?.toUpperCase()}</p>
+                                            }
                                             <div className="avatar">
                                                 <div
                                                     onMouseEnter={() => setShowProfileName(!showProfileName)}
-                                                    onMouseLeave={() => setShowProfileName(!showProfileName)}
+                                                    onMouseLeave={handleShowDisplayName}
                                                     className="w-14 rounded-full ring ring-primaryColor ring-offset-base-100 ring-offset-2">
                                                     <img src={user?.photoURL} alt="profile picture" />
                                                 </div>

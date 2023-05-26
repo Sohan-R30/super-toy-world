@@ -16,7 +16,7 @@ const Reviews = () => {
     const onSubmit = (data) => {
         fetch("https://super-toy-world-server.vercel.app/addReviews", {
             method: "POST",
-            headers: { "Content-Type": "application/json", },
+            headers: { "content-type": "application/json", },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
